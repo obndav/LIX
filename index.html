@@ -23,7 +23,7 @@
     <div class="wrapper">
         <aside class="sidebar left-sidebar" id="sidebar-nav">
             <nav>
-                <ul>
+                <ul class="desktop-menu">
                     <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
                     <li><a href="#"><i class="fas fa-hashtag"></i> Explore</a></li>
                     <li><a href="#"><i class="fas fa-bell"></i> Notifications</a></li>
@@ -37,11 +37,26 @@
         </aside>
         <main class="feed">
             <div class="stories">
-                <div class="story"><img src="story1.jpg" alt="Story 1"></div>
-                <div class="story"><img src="story2.jpg" alt="Story 2"></div>
-                <div class="story"><img src="story3.jpg" alt="Story 3"></div>
-                <div class="story"><img src="story4.jpg" alt="Story 4"></div>
-                <div class="story"><img src="story5.jpg" alt="Story 5"></div>
+                <div class="story" data-username="User1" data-story-image="story1.jpg" data-story-type="image">
+                    <img src="IMG_9364.jpeg" alt="Story 1">
+                    <p class="story-username">User1</p>
+                </div>
+                <div class="story" data-username="User2" data-story-image="story2.jpg" data-story-type="image">
+                    <img src="story2.jpg" alt="Story 2">
+                    <p class="story-username">User2</p>
+                </div>
+                <div class="story" data-username="User3" data-story-image="story3.jpg" data-story-type="image">
+                    <img src="story3.jpg" alt="Story 3">
+                    <p class="story-username">User3</p>
+                </div>
+                <div class="story" data-username="User4" data-story-image="story4.jpg" data-story-type="image">
+                    <img src="story4.jpg" alt="Story 4">
+                    <p class="story-username">User4</p>
+                </div>
+                <div class="story" data-username="User5" data-story-image="story5.jpg" data-story-type="image">
+                    <img src="story5.jpg" alt="Story 5">
+                    <p class="story-username">User5</p>
+                </div>
             </div>
             <div class="post">
                 <div class="user-info">
@@ -130,6 +145,19 @@
             <li><a href="#"><i class="fas fa-user"></i></a></li>
         </ul>
     </nav>
+
+    <!-- Story Modal -->
+    <div class="story-modal" id="story-modal">
+        <div class="story-modal-content">
+            <span class="close-story-modal" id="close-story-modal">&times;</span>
+            <img id="story-image" src="" alt="Story Image" class="story-image">
+            <video id="story-video" controls class="story-video" style="display:none;">
+                <source src="" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="story-username" id="story-username">Username</div>
+        </div>
+    </div>
 
     <!-- Sign In Modal -->
     <div class="modal" id="sign-in-modal">
