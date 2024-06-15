@@ -11,8 +11,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeSignUp = document.getElementById('close-sign-up');
     const commentInputs = document.querySelectorAll('.comment-input input');
     const mobileMenu = document.getElementById('mobile-menu');
-    const sidebarNav = document.getElementById('sidebar-nav');
     const leftSidebar = document.querySelector('.left-sidebar');
+    const storyModal = document.getElementById('story-modal');
+    const closeStoryModal = document.getElementById('close-story-modal');
+    const storyUsername = document.getElementById('story-username');
+    const storyImage = document.getElementById('story-image');
+    const storyVideo = document.getElementById('story-video');
 
     likeButtons.forEach(button => {
         button.addEventListener('click', () => {
@@ -116,5 +120,42 @@ document.addEventListener('DOMContentLoaded', () => {
         slidesPerView: 4,
         spaceBetween: 10,
         freeMode: true,
+    });
+
+    // Handle story click
+    document.querySelectorAll('.story').forEach(story => {
+        story.addEventListener('click', () => {
+            const username = story.getAttribute('data-username');
+            const imageUrl = story.getAttribute('data-story-image');
+            const storyType = story.getAttribute('data-story-type');
+
+            storyUsername.textContent = username;
+            if (storyType === 'image') {
+                storyImage.src = imageUrl;
+                storyImage.style.display = 'block';
+                storyVideo.style.display = 'none';
+            } else if (storyType === 'video') {
+                storyVideo.querySelector('source').src = imageUrl;
+                storyVideo.load();
+                storyImage.style.display = 'none';
+                storyVideo.style.display = 'block';
+            }
+
+            storyModal.style.display = 'flex';
+            document.body.classList.add('modal-open');
+        });
+    });
+
+    // Close story modal
+    closeStoryModal.addEventListener('click', () => {
+        storyModal.style.display = 'none';
+        document.body.classList.remove('modal-open');
+    });
+
+    window.addEventListener('click', (event) => {
+        if (event.target == storyModal) {
+            storyModal.style.display = 'none';
+            document.body.classList.remove('modal-open');
+        }
     });
 });
