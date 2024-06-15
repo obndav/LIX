@@ -79,6 +79,23 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
+.stories {
+    display: flex;
+    overflow-x: auto;
+    padding: 1rem 0;
+}
+
+.story {
+    margin-right: 1rem;
+}
+
+.story img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid #1da1f2;
+}
+
 .post {
     background-color: #fff;
     border: 1px solid #ddd;
@@ -316,6 +333,10 @@ button[type="submit"]:hover {
     bottom: 10px !important;
 }
 
+.bottom-nav {
+    display: none;
+}
+
 @media (max-width: 768px) {
     .wrapper {
         flex-direction: column;
@@ -378,5 +399,41 @@ button[type="submit"]:hover {
         to {
             transform: translateX(-100%);
         }
+    }
+
+    .bottom-nav {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        border-top: 1px solid #ddd;
+        box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    .bottom-nav ul {
+        display: flex;
+        justify-content: space-around;
+        margin: 0;
+        padding: 0.5rem 0;
+        list-style: none;
+    }
+
+    .bottom-nav ul li {
+        margin: 0;
+    }
+
+    .bottom-nav ul li a {
+        color: #1da1f2;
+        font-size: 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .bottom-nav ul li a:hover {
+        color: #0d95e8;
     }
 }
