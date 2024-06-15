@@ -98,8 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Initialize Swiper
-    const swiper = new Swiper('.swiper-container', {
+    // Initialize Swiper for post images
+    const swiperPosts = new Swiper('.swiper-container', {
         loop: true,
         pagination: {
             el: '.swiper-pagination',
@@ -109,5 +109,12 @@ document.addEventListener('DOMContentLoaded', () => {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
         },
+    });
+
+    // Initialize Swiper for stories
+    const swiperStories = new Swiper('.stories', {
+        slidesPerView: 4,
+        spaceBetween: 10,
+        freeMode: true,
     });
 });
